@@ -10,15 +10,15 @@ function AccountItem() {
         <div className={cx('wrapper')}>
             <img
                 className={cx('avartar')}
-                src="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/2f4b56dd5e8dae4913d9b88b0cdce82c~c5_100x100.jpeg?x-expires=1687255200&x-signature=BXYnIsfVsEz6%2ByXgKzTe6u8CZLQ%3D"
-                alt="Hoa"
+                src="https://lh3.googleusercontent.com/ogw/AOLn63Exd9CV8SMhKKCH9KuZ7-krFN5NdTuJV5-K3ZLW1Q=s32-c-mo"
+                alt="Tien"
             />
             <div className={cx('info')}>
                 <p className={cx('name')}>
-                    <span>Nguyen Van A</span>
+                    <span>Tien Nguyen</span>
                     <FontAwesomeIcon className={cx('check-icon')} icon={faCheckCircle} />
                 </p>
-                <span className={cx('username')}>nguyenvana</span>
+                <span className={cx('username')}>tiennguyen</span>
             </div>
         </div>
     );
