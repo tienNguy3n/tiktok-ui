@@ -7,12 +7,12 @@ import Header from './Header';
 import { useState } from 'react';
 
 const cx = classNames.bind(styles);
-const defaultFunctions = () => {}
+const defaultFunctions = () => {};
 
 function Menu({ children, items = [], onChange = defaultFunctions }) {
     const [history, setHistory] = useState([{ data: items }]);
     const current = history[history.length - 1];
-    
+
     const renderItems = () => {
         return current.data.map((item, index) => {
             const isParent = !!item.children;
@@ -36,9 +36,10 @@ function Menu({ children, items = [], onChange = defaultFunctions }) {
     return (
         <Tippy
             interactive
-            delay={[0, 1000]}
+            delay={[0, 800]}
+            offset={[12, 8]}
             placement="bottom-end"
-            onHide={() => setHistory(prev => prev.slice(0, 1))}
+            onHide={() => setHistory((prev) => prev.slice(0, 1))}
             render={(attrs) => (
                 <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
                     <PopperWrapper className={cx('menu-popper')}>
