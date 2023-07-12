@@ -9,8 +9,7 @@ import AccountItem from '~/components/AccountItem';
 import styles from './Search.module.scss';
 import { SearchIcon } from '~/components/Icons';
 import useDebounce from '~/hooks/useDebounce';
-import request from '~/utils/request';
-import * as searchServices from '~/apiServices/searchServices';
+import * as searchServices from '~/services/searchService';
 
 const cx = classNames.bind(styles);
 
@@ -19,11 +18,11 @@ function Search() {
     const [searchResult, setSearchResult] = useState([]);
     const [showResult, setShowResult] = useState(true);
     const [loading, setLoading] = useState(false);
-    const debounced = useDebounce(searchValue, 800);
+    const debouncedValue = useDebounce(searchValue, 800);
     const inputRef = useRef();
 
     useEffect(() => {
-        if (!debounced.trim()) {
+        if (!debouncedValue.trim()) {
             setSearchResult([]);
             return;
         }
@@ -31,14 +30,14 @@ function Search() {
         const fetchApi = async () => {
             setLoading(true);
 
-            const result = await searchServices.search(debounced);
+            const result = await searchServices.search(debouncedValue);
             setSearchResult(result);
 
             setLoading(false);
         };
 
         fetchApi();
-    }, [debounced]);
+    }, [debouncedValue]);
 
     const handleChange = (e) => {
         const searchValue = e.target.value;
